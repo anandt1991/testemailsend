@@ -1,0 +1,24 @@
+name: Send Email with SendGrid
+
+on:
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  send_email:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Send Email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.sendgrid.net
+          server_port: 587
+          username: "apikey"  # SendGrid requires "apikey" as the username
+          password: ${{ secrets.SENDGRID_API_KEY }}
+          subject: "GitHub Actions Email Test"
+          body: "This is a test email sent from GitHub Actions using SendGrid."
+          to: "recipient@example.com"
+          from: "your-email@example.com"

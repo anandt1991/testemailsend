@@ -21,4 +21,4 @@ jobs:
           subject: "GitHub Actions Email Test"
           body: "This is a test email sent from GitHub Actions using SendGrid."
           to: "anand.sac4u@gmail.com"
-          from: "anand.sac4u@gmail.com"
+          from: "ebuzz01@mail.com"
